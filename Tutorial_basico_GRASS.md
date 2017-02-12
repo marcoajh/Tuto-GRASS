@@ -21,6 +21,7 @@ Municipios
 ### Iniciar GRASS
 1. Abrir GRASS en windows  
 Clic en el boton de windows (inicio) y buscar grass, abrir *GRASS GIS 7.2.0*  
+Navegar hasta el directorio de la base de datos cartográfica, seleccionar Location y Mapset
 
 2. Identifiar los componentes de la interfaz
  * Administrador de mapas
