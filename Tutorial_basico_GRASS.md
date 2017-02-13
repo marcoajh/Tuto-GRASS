@@ -36,7 +36,7 @@ El MAPSET "PERMANENT" generalmente contiene los mapas de base de sólo lectura c
 
 Un mapa ráster de GRASS consiste de varios archivos en varios subdirectorios dentro de un MAPSET, con la siguiente organización
 *	**cellhd/**: encabezado del mapa, incluye el código de la proyección, las coordenadas extremas del mapa ráster, número de filas, número de columnas, resolución e información acerca de la compresión.  
-*	**cell/**, **fcell/** o **grid3/**: Matriz genérica de valores en un formato portable y comprimido que depende del tipo de datos del ráster (entero, punto flotante o 3D grid).  
+*	**cell/**, **fcell/** o **g3dcell/**: Matriz genérica de valores en un formato portable y comprimido que depende del tipo de datos del ráster (entero, punto flotante o 3D grid).  
 *	**hist/**: Archivo de historial que contiene metadatos tales como la fuente de los datos, el comando que se usó para generar el mapa ráster o información determinada por el usuario.    
 *	**cats/**: Archivo opcional de categorías el cual contiene etiquetas de texto o numéricas asignadas a las categorías del mapa ráster.    
 *	**colr:**: Archivo opcional con una tabla de colores   
