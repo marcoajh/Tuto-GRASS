@@ -61,7 +61,7 @@ Un mapa vectorial de GRASS está almacenado en varios archivos separados en un s
 1. Abrir GRASS en windows  
 Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 7.2.0* para abrir.  
 
-   ![Abrir GRASS](https://github.com/marcoajh/Tuto-GRASS/blob/master/abrir_grass.png "Abrir GRASS desde el menú inicio")
+   ![Abrir GRASS](https://github.com/marcoajh/Tuto-GRASS/blob/master/abrir_grass.PNG "Abrir GRASS desde el menú inicio")
 
 2. Identifiar los componentes de la interfaz  
  * Administrador de mapas  
@@ -72,7 +72,7 @@ Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 
  * Pestañas   
 
 
-   ![Pantalla con los componentes de la interfaz de GRASS](https://github.com/marcoajh/Tuto-GRASS/blob/master/interfaz.png "Pantalla con los componentes de la interfaz de GRASS, Administrador de capas, Visualizador de mapas y Consola de comandos")
+   ![Pantalla con los componentes de la interfaz de GRASS](https://github.com/marcoajh/Tuto-GRASS/blob/master/interfaz.PNG "Pantalla con los componentes de la interfaz de GRASS, Administrador de capas, Visualizador de mapas y Consola de comandos")
 
 ### Visualizar mapas ráster y vectorial
 
@@ -82,7 +82,7 @@ Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 
   b. Desplegar la lista de capas vectoriales disponibles  
   ```g.list vect```
 
-  ![g.list rast y g.list vect](https://github.com/marcoajh/Tuto-GRASS/blob/master/g.list.png "Visualización de los mapas raster y vectorial disponibles usando g.list")
+  ![g.list rast y g.list vect](https://github.com/marcoajh/Tuto-GRASS/blob/master/g.list.PNG "Visualización de los mapas raster y vectorial disponibles usando g.list")
 
 
 2. Cargar mapas  
@@ -94,7 +94,7 @@ Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 
  b. Cargar el mapa vectorial *Cuencas*, que se encuentra en PERMANENT  
      ```d.vect Cuencas@PERMANENT```   
 
-  ![d.rast](https://github.com/marcoajh/Tuto-GRASS/blob/master/d.vect.png "Uso del comando d.vect en la consola del administrador de capas")
+  ![d.rast](https://github.com/marcoajh/Tuto-GRASS/blob/master/d.vect.PNG "Uso del comando d.vect en la consola del administrador de capas")
 
 3. Copiar mapas  
  a. Copiar el raster *AGEB* que se encuentra en PERMANENT  
@@ -102,7 +102,7 @@ Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 
  b. Copiar el vectorial *Cuencas* que se encuentra en PERMANENT  
     ```g.copy vector=Cuencas@PERMANENT,Cuencas```
 
-  ![g.copy](https://github.com/marcoajh/Tuto-GRASS/blob/master/g.copy.png "Uso del comando g.copy en la consola del administrador de capas")
+  ![g.copy](https://github.com/marcoajh/Tuto-GRASS/blob/master/g.copy.PNG "Uso del comando g.copy en la consola del administrador de capas")
 
 
 ### Importar un mapa raster
@@ -116,9 +116,9 @@ Importar la capa vectorial *Hundimiento*
 ### Transformar un mapa vectorial a raster
 Revisar la tabal de datos de la capa, identificar los campos numéricos y los de texto.  
 
-  ![Datos del atributo 1](https://github.com/marcoajh/Tuto-GRASS/blob/master/rev_tabla_1.png "Visualización de la tabla de atributos de un archivo vectorial")
+  ![Datos del atributo 1](https://github.com/marcoajh/Tuto-GRASS/blob/master/rev_tabla_1.PNG "Visualización de la tabla de atributos de un archivo vectorial")
 
-  ![Datos del atributo 2](https://github.com/marcoajh/Tuto-GRASS/blob/master/rev_tabla_2.png "Visualización del tipo de datos en la tabla de un archivo vectorial")
+  ![Datos del atributo 2](https://github.com/marcoajh/Tuto-GRASS/blob/master/rev_tabla_2.PNG "Visualización del tipo de datos en la tabla de un archivo vectorial")
 
 Convertir la capa de *Cuencas* a raster   
 ```v.to.rast input=Cuencas output=Cuencas use=attr attribute_column=cat label_column=LAYER```   
@@ -148,7 +148,7 @@ Guardar la salida como archivo de texto
 Reportar las AGEB que presentan el fenónemo de hundimiento y guardar la salida como archivo separado por comas.  
 ```r.stats -ln AGEB,Hundimiento separator=,```   
 
-  ![salida de r.stats 1](https://github.com/marcoajh/Tuto-GRASS/blob/master/stats_hund.png "Salida de r.stats con una capa CELL y otra DCELL")
+  ![salida de r.stats 1](https://github.com/marcoajh/Tuto-GRASS/blob/master/stats_hund.PNG "Salida de r.stats con una capa CELL y otra DCELL")
 
 El tipo de datos de la capa *Hundimiento* debe ser "entero"   
 ```r.info Hundimiento```   
@@ -156,7 +156,7 @@ El tipo de datos de la capa *Hundimiento* debe ser "entero"
 
 ```r.stats -ln AGEB,Hundimiento_int separator=,```   
 
-  ![salida de r.stats 2](https://github.com/marcoajh/Tuto-GRASS/blob/master/stats_hund2.png "Salida de r.stats con dos capas CELL (enteros)")
+  ![salida de r.stats 2](https://github.com/marcoajh/Tuto-GRASS/blob/master/stats_hund2.PNG "Salida de r.stats con dos capas CELL (enteros)")
 
 ```r.stats -ln AGEB,Hundimiento_int separator=, > D:/ageb_hund.csv```
 
