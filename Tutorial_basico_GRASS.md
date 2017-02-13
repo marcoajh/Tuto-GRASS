@@ -1,5 +1,7 @@
 
 
+
+
 # Manejo básico de GRASS  
 ## Importacion y exportacion de archivos y consulta de datos  
 
@@ -86,10 +88,13 @@ Clic en el botón de windows (inicio) y buscar grass, hacer click en *GRASS GIS 
 2. Cargar mapas  
  a. Cargar el mapa raster *Elevacion*, que se encuentra en PERMANENT  
     ```d.rast Elevacion@PERMANENT```   
+
+      ![d.rast](C:\GIS_DB\imagenes\d.rast.png "Uso del comando d.rast en la consola del administrador de capas")
+
  b. Cargar el mapa vectorial *Cuencas*, que se encuentra en PERMANENT  
      ```d.vect Cuencas@PERMANENT```   
 
-  ![d.rast](C:\GIS_DB\imagenes\d.rast.png "Uso del comando d.rast en la consola del administrador de capas")
+  ![d.rast](C:\GIS_DB\imagenes\d.vect.png "Uso del comando d.vect en la consola del administrador de capas")
 
 3. Copiar mapas  
  a. Copiar el raster *AGEB* que se encuentra en PERMANENT  
@@ -110,15 +115,16 @@ Importar la capa vectorial *Hundimiento*
 
 ### Transformar un mapa vectorial a raster
 Revisar la tabal de datos de la capa, identificar los campos numéricos y los de texto.  
+
+  ![Datos del atributo 1](C:\GIS_DB\imagenes\rev_tabla_1.png "Visualización de la tabla de atributos de un archivo vectorial")
+
+  ![Datos del atributo 2](C:\GIS_DB\imagenes\rev_tabla_2.png "Visualización del tipo de datos en la tabla de un archivo vectorial")
+
 Convertir la capa de *Cuencas* a raster   
 ```v.to.rast input=Cuencas output=Cuencas use=attr attribute_column=cat label_column=LAYER```   
+
 Convertir la capa *Hundimiento* a raster   
 ```v.to.rast input=Hundimiento@Marco output=Hundimiento use=attr attribute_column=HUNDIM_NUM label_column=HUNDIM_LEY```  
-
-El tipo de datos de la capa *Hundimiento* debe ser "entero"   
-```r.info Hundimiento```   
-```r.mapcalc "Hundimiento_int = int( Hundimiento )"```   
-
 
 
 ### Transformar un mapa raster a vectorial
@@ -139,15 +145,25 @@ Reportar el área de cada cuenca
 Guardar la salida como archivo de texto   
 ```r.stats -lan Cuencas separator=, > D:/areas_cuencas.csv```     
 ### Obtener estadísticas cruzadas con dos capas
-Reportar las AGEB que presentan el fenónemo de hundimiento.  
-Guardar la salida como archivo separado por comas.  
-```r.stats -ln AGEB,Hundimiento_int separator=, > ageb_hund.csv```   
+Reportar las AGEB que presentan el fenónemo de hundimiento y guardar la salida como archivo separado por comas.  
+```r.stats -ln AGEB,Hundimiento separator=,```   
+
+  ![salida de r.stats 1](C:\GIS_DB\imagenes\stats_hund.png "Salida de r.stats con una capa CELL y otra DCELL")
+
+El tipo de datos de la capa *Hundimiento* debe ser "entero"   
+```r.info Hundimiento```   
+```r.mapcalc "Hundimiento_int = int( Hundimiento )"```
+
+```r.stats -ln AGEB,Hundimiento_int separator=,```   
+
+  ![salida de r.stats 2](C:\GIS_DB\imagenes\stats_hund2.png "Salida de r.stats con dos capas CELL (enteros)")
+
+```r.stats -ln AGEB,Hundimiento_int separator=, > D:/ageb_hund.csv```
+
 
 #### Reportar la percolacion promedio en cada cuenca  
 
 Calcular el promedio usando *r.statistics*   
 ```r.statistics base=Cuencas@Marco cover=Percolacion@Marco method=average output=cuencas_perc```   
 Obtener un archivo de valores separados por comas   
-```r.stats -ln cuencas_perc separator=, >  D:/Percolacion_promedio.csv```  
-
-
+```r.stats -ln cuencas_perc separator=, > Percolacion_promedio.csv```  
