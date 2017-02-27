@@ -166,4 +166,4 @@ El tipo de datos de la capa *Hundimiento* debe ser "entero"
 Calcular el promedio usando *r.statistics*   
 ```r.statistics base=Cuencas@Marco cover=Percolacion@Marco method=average output=cuencas_perc```   
 Obtener un archivo de valores separados por comas   
-```r.stats -ln cuencas_perc separator=, > Percolacion_promedio.csv```  
+```r.stats -ln cuencas_perc separator=, > D:/Percolacion_promedio.csv```  
