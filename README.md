@@ -114,7 +114,7 @@ Importar la capa vectorial *Hundimiento*
 ```v.import input=C:\GIS_DB\Hundimiento.shp layer=Hundimiento output=Hundimiento```     
 
 ### Transformar un mapa vectorial a raster
-Revisar la tabal de datos de la capa, identificar los campos numéricos y los de texto.  
+Revisar la tabla de datos de la capa, identificar los campos numéricos y los de texto.  
 
   ![Datos del atributo 1](https://github.com/marcoajh/Tuto-GRASS/blob/master/rev_tabla_1.PNG "Visualización de la tabla de atributos de un archivo vectorial")
 
